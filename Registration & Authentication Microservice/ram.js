@@ -68,7 +68,7 @@ function cleanse(userdata){
 }
 
 function checkExistence(userdata) {
-    var username = userdata.username;
+    var username = userdata.username.toLowerCase();
     var k = {};
     var promiseforcheck = new Promise(function (resolve, reject) {
         var userrecord = User.find({
@@ -88,7 +88,7 @@ function checkExistence(userdata) {
 }
 
 function authUser(userdata) {
-    var username = userdata.username;
+    var username = userdata.username.toLowerCase();
     var password = userdata.password+sha256(userdata.password);
     var k = {}
     var promiseforcheck = new Promise(function (resolve, reject) {
